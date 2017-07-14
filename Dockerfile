@@ -10,7 +10,7 @@ MAINTAINER Jacob Alberty <jacob.alberty@foundigital.com>
 ENV DEBIAN_FRONTEND noninteractive \
   container=docker
 
-ENV PKGURL=https://dl.ubnt.com/unifi/5.4.18/unifi_sysvinit_all.deb
+ENV PKGURL=https://dl.ubnt.com/unifi/5.5.19/unifi_sysvinit_all.deb
 
 # Need backports for openjdk-8
 RUN echo "deb http://deb.debian.org/debian/ jessie-backports main" > /etc/apt/sources.list.d/10backports.list && \
@@ -58,7 +58,7 @@ VOLUME ["${DATADIR}", "${RUNDIR}", "${LOGDIR}"]
 # not sure if "/usr/lib/unifi/work" is needed as well?
 
 #EXPOSE 6789/tcp 8080/tcp 8081/tcp 8443/tcp 8843/tcp 8880/tcp 3478/udp
-EXPOSE 6789/tcp 8080/tcp 8443/tcp 8880/tcp 8843/tcp 3478/udp
+EXPOSE 6789/tcp 8080/tcp 8443/tcp 8880/tcp 8843/tcp 3478/udp 80/tcp 443/tcp
 
 ## Uncommenting these allows unifi to run as user nobody but I don't know for sure that all features #work so leaving commented out for now
 #RUN chown -R nobody:nogroup /usr/lib/unifi && \
